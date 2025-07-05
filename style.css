@@ -1,0 +1,165 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #ffb199 100%);
+  overflow: hidden;
+  position: relative;
+  animation: backgroundAnimation 20s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50"><path d="M25 41c-2-2-5-3.5-8-5-9-5-12-10-12-15 0-6 4-10 10-10 4 0 7 2 9 5 2-3 5-5 9-5 6 0 10 4 10 10 0 5-3 10-12 15-3 1.5-6 3-8 5z" fill="rgba(255,255,255,0.07)"/></svg>') repeat;
+  opacity: 0.3;
+  z-index: 0;
+  animation: floatPattern 30s linear infinite;
+}
+
+@keyframes floatPattern {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-100px, -100px);
+  }
+}
+
+.container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 30px;
+  box-shadow: 0 12px 40px rgba(255, 105, 135, 0.3);
+  width: 380px;
+  z-index: 1;
+  position: relative;
+  backdrop-filter: blur(12px);
+  animation: floatContainer 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatContainer {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+h1 {
+  color: #ff4081;
+  font-family: 'Dancing Script', cursive;
+  font-size: 3em;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(255, 105, 135, 0.3);
+}
+
+p {
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+input {
+  padding: 14px;
+  font-size: 1em;
+  border: 2px solid #ff80ab;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #ff4081;
+  box-shadow: 0 0 12px rgba(255, 64, 129, 0.5);
+  background: white;
+}
+
+input::placeholder {
+  color: #ff80ab;
+  opacity: 0.8;
+}
+
+.love-btn {
+  padding: 14px;
+  font-size: 1.2em;
+  background: linear-gradient(135deg, #ff4081, #ff80ab, #f48fb1);
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(255, 64, 129, 0.5);
+  animation: pulseHeart 2.5s infinite;
+}
+
+@keyframes pulseHeart {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.5);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 64, 129, 0.7);
+  }
+}
+
+.love-btn:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+}
+
+.love-btn::after {
+  content: '❤️';
+  position: absolute;
+  font-size: 1.5em;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.4s ease, right 0.4s ease;
+}
+
+.love-btn:hover::after {
+  opacity: 1;
+  right: 15px;
+}
+
+.result {
+  margin: 30px 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ff4081;
+  min-height: 35px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
+}
